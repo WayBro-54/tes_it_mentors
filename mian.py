@@ -31,7 +31,6 @@ def validate(lst: list[str]) -> tuple:
 
 def main() -> int:
     value_lst = input().split()
-    print(len(value_lst))
     a, b, oper = validate(value_lst)
     try:
         result = int(operations[oper](a, b))
