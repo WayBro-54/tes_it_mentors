@@ -13,6 +13,8 @@ operations = {
 
 def validate(lst: list[str]) -> tuple:
     '''This function checks data input'''
+    if len(lst) != 3:
+        raise ValueError('This calculation expressions of the from [1 + 2]')
     if not lst[0].isdigit() or not lst[2].isdigit():
         raise ValueError('This calculation expressions of the from [1 + 2]')
     if not isinstance(lst[1], str):
@@ -28,9 +30,10 @@ def validate(lst: list[str]) -> tuple:
     return a, b, oper
 
 def main() -> int:
+    value_lst = input().split()
+    print(len(value_lst))
+    a, b, oper = validate(value_lst)
     try:
-        value_lst = input().split()
-        a, b, oper = validate(value_lst)
         result = int(operations[oper](a, b))
     except Exception:
         print('unexpected error')
